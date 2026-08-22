@@ -53,7 +53,6 @@ Once connected, just type to send a message to everyone. Useful commands:
 | Command | Description |
 |---|---|
 | `/who` | List connected peers |
-| `/name <name>` | Set your display name (saved for next run) |
 | `/msg <name\|id> <text>` | Send a private message |
 | `/reply <msg_id> <text>` | Reply to a specific message (pings its sender) |
 | `/sendfile <name\|id> <path>` | Offer to send a file |
@@ -65,6 +64,13 @@ Once connected, just type to send a message to everyone. Useful commands:
 | `/recent [count]` | Show recent messages with their ids |
 | `/help` | Full command list |
 | `/quit` | Exit |
+
+TUI only:
+| Command | Description |
+|---|---|
+| `/name <name>` | Set your display name (saved for next run) |
+| `/showid` | Toggle showing peer IDs instead of names |
+On the GUI these have been replaced with the settings page.
 
 Typing `@name` in a message pings that user.
 
