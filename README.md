@@ -80,7 +80,7 @@ Typing `@name` in a message pings that user.
 - **Identity** is ephemeral: a random 8-character ID is generated each run
   (or loaded from a saved display name), with no accounts or persistent
   keys. Within a run, each peer proves ownership of its ID using a
-  session-local HMAC key — see [`PROTOCOL.md`](Protocol.md) for details.
+  session-local HMAC key — see [`Protocol.md`](Protocol.md) for details.
 - **File transfers** are chunked, acknowledged, retried on loss, and
   SHA-256-verified end to end.
 
@@ -100,7 +100,7 @@ Typing `@name` in a message pings that user.
 ## Version
 
 - App version: `2.0.1`
-- Protocol version: `2.0` (see [`PROTOCOL.md`](Protocol.md))
+- Protocol version: `2.0` (see [`Protocol.md`](Protocol.md))
 
 Peers running a different protocol version than each other are not
 guaranteed to be compatible and dechat will refuse to start networking if
