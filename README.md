@@ -70,6 +70,7 @@ TUI only:
 |---|---|
 | `/name <name>` | Set your display name (saved for next run) |
 | `/showid` | Toggle showing peer IDs instead of names |
+
 On the GUI these have been replaced with the settings page.
 
 Typing `@name` in a message pings that user.
