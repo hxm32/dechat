@@ -23,6 +23,8 @@ Tkinter GUI.
 - **Ignore list**, **message history**, and **rate limiting**.
 - Both a **TUI** (plain terminal) and a **GUI** (Tkinter, with themes,
   settings panel, and a collapsible news panel).
+  
+<img width="638" height="754" alt="Screenshot 2026-08-23 at 8 50 37 AM" src="https://github.com/user-attachments/assets/7519de5d-0eb6-46e5-896f-f17183521957" />
 
 ## Requirements
 
