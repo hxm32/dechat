@@ -35,6 +35,8 @@ Tkinter GUI. Only uses imports from Stdlib, no installs needed.
 
 ## Running
 
+Download dechat_VERSION.py 
+
 ```bash
 python3 dechat.py
 ```
