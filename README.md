@@ -108,7 +108,7 @@ Typing `@name` in a message pings that user.
 
 ## Version
 
-- App version: `2.0.1`
+- App version: `2.0.2`
 - Protocol version: `2.0` (see [`Protocol.md`](Protocol.md))
 
 Peers running a different protocol version than each other are not
