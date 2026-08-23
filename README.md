@@ -3,7 +3,7 @@
 A serverless, LAN-based peer-to-peer chat app. No accounts, no central server,
 no persistent identity — run it, and it finds other people running it on the
 same network and lets you talk. Comes with both a terminal UI and an optional
-Tkinter GUI.
+Tkinter GUI. Only uses imports from Stdlib, no installs needed.
 
 ## Features
 
