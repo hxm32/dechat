@@ -2015,12 +2015,25 @@ def _process_discovery_announce(peer_id, ip):
 
 def discovery():
     global discovery_socket
-    udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    udp.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-    udp.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    udp.bind(("", DISCOVERY_PORT))
-    udp.settimeout(1)
-    discovery_socket = udp
+    udp = None
+    try:
+        udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        udp.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+        udp.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        udp.bind(("", DISCOVERY_PORT))
+        udp.settimeout(1)
+        discovery_socket = udp
+    except OSError as e:
+        discovery_socket = None
+        if udp is not None:
+            try:
+                udp.close()
+            except OSError:
+                pass
+        ui_print(
+            f"Peer discovery is unavailable on UDP port {DISCOVERY_PORT}: {e}"
+        )
+        return
 
     broadcast_targets = ["255.255.255.255"]
     local_ip = get_local_ip()
