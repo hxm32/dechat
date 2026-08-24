@@ -1,4 +1,4 @@
-# dechat
+# DeChat
 
 A serverless, LAN-based peer-to-peer chat app. No accounts, no central server,
 no persistent identity — run it, and it finds other people running it on the
@@ -20,6 +20,8 @@ Tkinter GUI. Only uses imports from Stdlib, no installs needed.
   SHA-256 integrity verification.
 - **Message replies** with reply-linking and ping-on-reply.
 - **Per-peer colors and display names**, both persisted locally.
+- **Peer IP/name cache** so returning peers keep a recognizable name even
+  though their session IDs change between runs.
 - **Ignore list**, **message history**, and **rate limiting**.
 - Both a **TUI** (plain terminal) and a **GUI** (Tkinter, with themes,
   settings panel, and a collapsible news panel).
@@ -106,11 +108,13 @@ Typing `@name` in a message pings that user.
   reaching all participants, so it's intended for a single local network
   segment. Use `/connect <ip>` to bridge networks manually if needed.
 - **Ephemeral identity.** IDs, session keys, and peer trust are not
-  preserved across restarts.
+  preserved across restarts. A local `.dechat_peers.json` cache remembers
+  only the last verified username seen at each IP to improve display labels;
+  it is not an identity or authentication mechanism.
 
 ## Version
 
-- App version: `2.0.2`
+- App version: `2.0.3`
 - Protocol version: `2.0` (see [`Protocol.md`](Protocol.md))
 
 Peers running a different protocol version than each other are not
