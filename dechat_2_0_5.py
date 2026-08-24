@@ -66,7 +66,7 @@ MY_ID = str(uuid.uuid4())[:8]
 # start networking at all and show a "please update" screen instead (see
 # run_tui()/run_gui() below). A plain app-version mismatch (latestVersion)
 # is not protocol-breaking, so that just shows a dismissable notice instead.
-CURRENT_VERSION = "2.0.4"
+CURRENT_VERSION = "2.0.5"
 PROTOCOL_VERSION = "2.0"
 UPDATE_CHECK_URL = "https://deapi.hxm128.workers.dev/"
 UPDATE_CHECK_TIMEOUT = 5
