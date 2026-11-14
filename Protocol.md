@@ -1,4 +1,4 @@
-# dechat Wire Protocol 2.0
+# dechat Wire Protocol 2.1
 
 This document describes dechat's network protocol as implemented by
 `PROTOCOL_VERSION = "2.0"`. It covers discovery, transport, the mesh
@@ -228,6 +228,11 @@ PRIV|<target_id>|<sender_id>|<color_idx>|<name>|<text>
 Only displayed/acted on by the node whose ID equals `target_id`; other
 nodes relay it onward without processing it.
 
+`MSG`, `PRIV` and `GROUP_MSG` text is encrypted: `base64url(nonce(8) | ciphertext | mac(16))`.
+The key is `HMAC(PBKDF2(ENCRYPTION_KEY), window)`, where `window = unix_time // ENCRYPTION_WINDOW`.
+Receivers try the current window plus or minus `ENCRYPTION_TOLERANCE`. Peers with a
+different key or a clock out of sync see an "undecryptable" placeholder.
+
 ### 7.4 `COLOR` — color change announcement
 
 ```
@@ -308,7 +313,7 @@ Transfers are additionally bounded by:
 
 ## 9. Version negotiation
 
-`PROTOCOL_VERSION = "2.0"` is not itself transmitted peer-to-peer; instead,
+`PROTOCOL_VERSION = "2.1"` is not itself transmitted peer-to-peer; instead,
 each client checks a small external status endpoint at startup
 (`fetch_update_status()`) which reports the current expected
 `protocolVersion`. If the client's `PROTOCOL_VERSION` doesn't match, it
