@@ -18,7 +18,7 @@ Tkinter GUI. Only uses the Python standard library, no installs needed.
 - **Time-based message encryption.** Chat, private and group message text is
   encrypted with a key derived from a shared passphrase and the current time
   window (60s by default). The default passphrase is `dechat_message_encryption_default_key`; change
-  `ENCRYPTION_KEY` in `dechat/core/config.py` if you want to set it t0 something else. All peers must use the same
+  `ENCRYPTION_KEY` in `dechat/core/config.py` if you want to set it to something else. All peers must use the same
   key and have roughly synced clocks, and older versions can't read these
   messages.
 - **Private messaging, pings, and @mentions.**
