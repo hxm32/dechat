@@ -248,6 +248,9 @@ to change:
 
 | Constant | Default | Meaning |
 |---|---|---|
+| `ENCRYPTION_KEY` | `"dechat"` | Shared passphrase for message encryption. Must match on every peer. |
+| `ENCRYPTION_WINDOW` | 60 | Seconds per key window. |
+| `ENCRYPTION_TOLERANCE` | 1 | Extra windows accepted either side (clock drift, relay delay). |
 | `CHAT_PORT` | 5001 | TCP port for chat. |
 | `DISCOVERY_PORT` | 5002 | UDP port for discovery. |
 | `MAX_PEER_DEGREE` | 12 | Direct connections each peer aims to keep. |
