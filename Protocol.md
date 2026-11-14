@@ -1,4 +1,4 @@
-# dechat Wire Protocol 2.1
+# Dechat Wire Protocol 2.1
 
 This document describes dechat's network protocol as implemented by
 `PROTOCOL_VERSION = "2.0"`. It covers discovery, transport, the mesh
@@ -9,11 +9,11 @@ interoperate and should not be assumed compatible.
 
 ## 1. Overview
 
-dechat has two network layers:
+Dechat has two network layers:
 
-1. **Discovery** — UDP broadcast, used only to find other peers' IP
+1. **Discovery**: UDP broadcast, used only to find other peers' IP
    addresses.
-2. **Chat transport** — TCP, used for everything else (messages, private
+2. **Chat transport**: TCP, used for everything else (messages, private
    messages, pings, file transfer, presence).
 
 On top of the TCP transport sits a **gossip mesh**: peers maintain a
@@ -41,7 +41,7 @@ All wire data is line-delimited UTF-8 text, fields separated by `|`.
 
 ## 4. Session authentication (anti-spoofing)
 
-Because dechat has no persistent identity, protocol 2.0 introduces a
+Because dechat has no persistent identity, protocol 2.0 and above introduces a
 **per-session HMAC signature scheme** to stop packet forgery on the mesh,
 particularly by relay nodes.
 
@@ -91,9 +91,8 @@ direct socket to check identity against.
 - **Provides:** integrity and authenticity of packet origin within a
   single run, even across multiple relay hops.
 - **Does not provide:** persistent identity across restarts (a fresh run
-  = a fresh key, same as a fresh `MY_ID`), or confidentiality — message
-  and file content are still sent in plaintext. Any relay hop can read
-  traffic it forwards; it just can't alter or forge it without detection.
+  = a fresh key, same as a fresh `MY_ID`), or confidentiality. Any relay hop can read
+  traffic it forwards provided it knows the encryption key; it just can't alter or forge it without detection.
 
 ## 5. Discovery (UDP, port 5002)
 
@@ -285,9 +284,9 @@ FILE_ACK|<target_id>|<peer_id>|<offer_id>|<chunk_index>
   un-acked within a bounded retry window.
 - On full reassembly, the receiver recomputes the SHA-256 of the
   reassembled bytes and compares it (constant-time) against `file_hash`.
-  A mismatch discards the file rather than saving unverified data —
+  A mismatch discards the file rather than saving unverified data,
   this also protects against a relay hop tampering with chunk contents
-  in transit (relays can read plaintext chunks but altering them is
+  in transit (relays can read chunks if they have the encryption key but altering them is
   detectable).
 
 Transfers are additionally bounded by:
