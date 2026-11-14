@@ -17,8 +17,8 @@ Tkinter GUI. Only uses the Python standard library, no installs needed.
   relays) can't forge messages, pings, or file transfers on your behalf.
 - **Time-based message encryption.** Chat, private and group message text is
   encrypted with a key derived from a shared passphrase and the current time
-  window (60s by default). The default passphrase is `dechat`; change
-  `ENCRYPTION_KEY` in `dechat/core/config.py`. All peers must use the same
+  window (60s by default). The default passphrase is `dechat_message_encryption_default_key`; change
+  `ENCRYPTION_KEY` in `dechat/core/config.py` if you want to set it t0 something else. All peers must use the same
   key and have roughly synced clocks, and older versions can't read these
   messages.
 - **Private messaging, pings, and @mentions.**
@@ -152,12 +152,6 @@ dechat/
   SHA-256-verified end to end.
 
 ## Known limitations
-
-- **No content encryption.** Messages, private messages, and file contents
-  are sent in plaintext over the LAN and can be read by anyone who can
-  see the traffic (including relay nodes on a larger mesh). The
-  anti-spoofing mechanism prevents forgery and tampering, not
-  eavesdropping.
 - **LAN-only discovery.** Automatic discovery relies on broadcast traffic
   reaching all participants, so it's intended for a single local network
   segment. Use `/connect <ip>` to bridge networks manually if needed.
