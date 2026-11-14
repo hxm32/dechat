@@ -15,6 +15,12 @@ Tkinter GUI. Only uses the Python standard library, no installs needed.
 - **Session-based anti-spoofing.** Every peer signs its packets with an
   HMAC key generated at startup, so other peers on the mesh (including
   relays) can't forge messages, pings, or file transfers on your behalf.
+- **Time-based message encryption.** Chat, private and group message text is
+  encrypted with a key derived from a shared passphrase and the current time
+  window (60s by default). The default passphrase is `dechat`; change
+  `ENCRYPTION_KEY` in `dechat/core/config.py`. All peers must use the same
+  key and have roughly synced clocks, and older versions can't read these
+  messages.
 - **Private messaging, pings, and @mentions.**
 - **Group chats** with fixed membership.
 - **File transfer** with chunked delivery, acknowledgement/retransmit, and
@@ -118,7 +124,7 @@ Typing `@name` in a message pings that user.
 dechat/
   __main__.py        entry point (python -m dechat)
   launcher.py        TUI/GUI chooser
-  core/              config, identity and signing, shared state, colors,
+  core/              config, identity and signing, encryption, shared state, colors,
                      logging, output queue, text helpers, update check
   net/               sockets, relay flooding, routing, packet authentication,
                      rate limits, connections, discovery, start/stop
@@ -164,8 +170,8 @@ dechat/
 
 ## Version
 
-- App version: `3.0`
-- Protocol version: `2.0` (see [`Protocol.md`](Protocol.md))
+- App version: `3.1`
+- Protocol version: `2.1` (see [`Protocol.md`](Protocol.md))
 
 Peers running a different protocol version than each other are not
 guaranteed to be compatible, and dechat will refuse to start networking if
