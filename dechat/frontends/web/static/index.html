@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>dechat</title>
+  <link rel="stylesheet" href="/app.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="brand-area">
+      <span id="brand">dechat</span>
+      <span id="me-name"></span>
+    </div>
+    <span id="conn" hidden>reconnecting...</span>
+    <span class="spacer"></span>
+    <button id="btn-settings" class="link">settings</button>
+    <button id="btn-news" class="link">news</button>
+    <button id="btn-people" class="link strong">0 peers</button>
+  </header>
+
+  <div id="outdated" hidden>
+    <span>You're not on the latest version of dechat. The app will still work as normal, but you may miss out on the latest features</span>
+    <button id="btn-dismiss">Dismiss</button>
+  </div>
+
+  <div id="body">
+    <section id="main">
+      <nav id="tabs">
+        <button data-tab="chat" class="tab active">Chat</button>
+        <button data-tab="dm" class="tab">DMs</button>
+        <button data-tab="group" class="tab">Groups</button>
+      </nav>
+      <div id="panes">
+        <div id="pane-chat" class="pane"><div id="chat-log" class="log"></div></div>
+        <div id="pane-dm" class="pane" hidden>
+          <aside class="sidebar">
+            <h4>ONLINE</h4>
+            <ul id="online-list"></ul>
+            <h4>RECENT DMS</h4>
+            <ul id="dm-list"></ul>
+          </aside>
+          <div id="dm-log" class="log"></div>
+        </div>
+        <div id="pane-group" class="pane" hidden>
+          <aside class="sidebar">
+            <button id="btn-new-group" class="wide">+ New group</button>
+            <ul id="group-list"></ul>
+          </aside>
+          <div id="group-log" class="log"></div>
+        </div>
+      </div>
+    </section>
+
+    <aside id="panel-news" class="panel" hidden>
+      <h4>WHAT'S NEW</h4>
+      <p id="news-recent" class="accent strong"></p>
+      <p id="news-details"></p>
+    </aside>
+
+    <aside id="panel-settings" class="panel" hidden>
+      <h3>SETTINGS</h3>
+      <label for="set-theme">Theme</label>
+      <select id="set-theme"></select>
+      <label for="set-color">Chat colour</label>
+      <select id="set-color"></select>
+      <label for="set-name">Display name</label>
+      <input id="set-name" type="text" maxlength="32" autocomplete="off" spellcheck="false">
+      <label class="check"><input id="set-sound" type="checkbox"> Ping Sound Effect?</label>
+      <label class="check"><input id="set-timestamps" type="checkbox"> Timestamps?</label>
+      <label class="check"><input id="set-presence" type="checkbox"> Connection Notices?</label>
+      <label class="check"><input id="set-showid" type="checkbox"> Show IDs Instead of Names?</label>
+      <button id="btn-apply" class="wide">Apply</button>
+      <p id="set-status" class="dim"></p>
+    </aside>
+  </div>
+
+  <div id="help" hidden></div>
+
+  <footer>
+    <span id="prompt"></span>
+    <input id="input" type="text" autocomplete="off" spellcheck="false" autofocus>
+    <button id="btn-attach" title="Send a file to the open DM">+</button>
+    <button id="btn-send">Send</button>
+    <button id="btn-help" title="Command list">?</button>
+  </footer>
+
+  <input type="file" id="file-input" hidden>
+
+  <dialog id="dlg-people">
+    <h3>People</h3>
+    <div class="scroll"><table id="people-table"></table></div>
+    <div class="actions"><button id="people-close">Close</button></div>
+  </dialog>
+
+  <dialog id="dlg-group">
+    <h3>New group</h3>
+    <label for="group-name">Group name</label>
+    <input id="group-name" type="text" maxlength="64" autocomplete="off">
+    <label>Members</label>
+    <div id="group-members" class="scroll"></div>
+    <p id="group-status" class="error"></p>
+    <div class="actions">
+      <button id="group-cancel">Cancel</button>
+      <button id="group-create">Create group</button>
+    </div>
+  </dialog>
+
+  <div id="overlay" hidden>
+    <div class="card">
+      <h2 id="overlay-title"></h2>
+      <p id="overlay-text"></p>
+      <p id="overlay-extra" class="dim"></p>
+      <button id="overlay-quit" hidden>Quit</button>
+    </div>
+  </div>
+</body>
+</html>
