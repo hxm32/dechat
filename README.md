@@ -1,6 +1,6 @@
 # DeChat
 
-A serverless, LAN-based peer-to-peer chat app. No accounts, no central server,
+A serverless, decentralised LAN-based peer-to-peer chat app. No accounts, no central server,
 no persistent identity. Run it, and it finds other people running it on the
 same network and lets you talk. The chat interface runs in your browser,
 served locally at <http://localhost:3000>. Only uses the Python standard
