@@ -9,7 +9,7 @@ library, no installs needed.
 ## Features
 
 - **Zero-config discovery.** Peers find each other via UDP broadcast on the
-  local network. No IP addresses or server URLs to configure.
+  local network.
 - **Gossip mesh networking.** Scales past a handful of users by capping how
   many direct connections each peer holds and flooding messages across the
   mesh instead of maintaining a full mesh of connections.
