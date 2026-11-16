@@ -34,7 +34,7 @@ library, no installs needed.
 - A **web interface** on `localhost:3000` with themes, markdown and LaTeX
   rendering, a settings panel, and a collapsible news panel. It opens in your
   browser automatically.
-- A **terminal UI** for debugging, available with `--terminal --debug`.
+- A **debug interface** available with the `--debug` flag.
 
 <img width="638" height="754" alt="Screenshot 2026-08-23 at 8 50 37 AM" src="https://github.com/user-attachments/assets/7519de5d-0eb6-46e5-896f-f17183521957" />
 
