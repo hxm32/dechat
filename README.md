@@ -20,7 +20,7 @@ library, no installs needed.
   encrypted with a key derived from a shared passphrase and the current time
   window (60s by default). The default passphrase is `dechat_message_encryption_default_key`; change
   `ENCRYPTION_KEY` in `dechat/core/config.py` if you want to set it to something else. All peers must use the same
-  key and have roughly synced clocks, and older versions or people with different encryption keys can't read these
+  key and have roughly synced clocks, and older versions of the protocol or people with different encryption keys can't read these
   messages.
 - **Private messaging, pings, and @mentions.**
 - **Group chats** with fixed membership.
