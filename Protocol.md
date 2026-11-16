@@ -1,7 +1,7 @@
 # Dechat Wire Protocol 2.1
 
 This document describes dechat's network protocol as implemented by
-`PROTOCOL_VERSION = "2.0"`. It covers discovery, transport, the mesh
+`PROTOCOL_VERSION = "2.1"`. It covers discovery, transport, the mesh
 relay/flood layer, session-based authentication, and every packet type.
 
 Peers running different protocol versions are not guaranteed to
