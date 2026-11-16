@@ -90,7 +90,7 @@ python3 -m dechat --terminal --debug
 ```
 
 Everyone on the same local network running dechat will automatically
-discover and connect to each other within a few seconds.
+discover and connect to each other within a few seconds. Users on different subnets will have to use the `/connect` command to connect manually.
 
 Chat history, your display name, and color preferences are saved in the
 folder you run it from (`chat.log`, `.dechat_name`, `.dechat_colors`,
@@ -173,7 +173,7 @@ dechat/
 ## Known limitations
 - **LAN-only discovery.** Automatic discovery relies on broadcast traffic
   reaching all participants, so it's intended for a single local network
-  segment. Use `/connect <ip>` to bridge networks manually if needed.
+  segment. Use `/connect <ip>` to bridge networks or subnets manually if needed.
 - **Ephemeral identity.** IDs, session keys, and peer trust are not
   preserved across restarts. A local `.dechat_peers.json` cache remembers
   only the last verified username seen at each IP to improve display labels;
